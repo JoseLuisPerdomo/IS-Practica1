@@ -4,6 +4,7 @@ public class Vehicle {
     public String make;
     public String model;
     public Plate plate;
+    //TODO Make the relation between Vehicle and Repair / and Costumer
 
     public Vehicle (String make, String model, Plate plate){
         this.make = make;

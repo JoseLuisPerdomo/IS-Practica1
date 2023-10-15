@@ -6,7 +6,7 @@ public class Plate {
     public Plate(String number) {
         this.number = number;
     }
-
+//TODO Improve method isValid.
         public boolean isValid() {
             if (number != ""){
                 return true;
