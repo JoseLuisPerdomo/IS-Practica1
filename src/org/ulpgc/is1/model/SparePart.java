@@ -1,17 +1,19 @@
 package org.ulpgc.is1.model;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SparePart {
     public String name;
     public int price;
-    public Repair repair;
+    public List<Repair> repairs;
 
     //TODO Make the relation between SpareParts and Repair
 
 
-    public SparePart(String name, int price, Repair repair) {
+    public SparePart(String name, int price) {
         this.name = name;
         this.price = price;
-        this.repair = repair;
+        this.repairs = new ArrayList<>();
     }
 
     public String getName() {
@@ -20,9 +22,5 @@ public class SparePart {
 
     public int getPrice() {
         return price;
-    }
-
-    public Repair getRepair() {
-        return repair;
     }
 }

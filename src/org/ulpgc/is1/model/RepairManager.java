@@ -3,14 +3,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RepairManager {
-    public List mechanics;
-    public List vehicles;
-    public List spareParts;
+    public List<Mechanic> mechanics;
+    public List<Vehicle> vehicles;
+    public List<SparePart> spareParts;
 
-    public RepairManager(List mechanics, List vehicles, List spareParts) {
-        this.mechanics = new ArrayList<Mechanic>();
-        this.vehicles = new ArrayList<Vehicle>();
-        this.spareParts = new ArrayList<SparePart>();
+    public RepairManager() {
+        this.mechanics = new ArrayList<>();
+        this.vehicles = new ArrayList<>();
+        this.spareParts = new ArrayList<>();
     }
 
     public void addMechanic(Mechanic newMechanic){
@@ -23,15 +23,15 @@ public class RepairManager {
 
     //TODO Methods Repair and getMechanic/Vehicle
 
-    public List getMechanics() {
+    public List<Mechanic> getMechanics() {
         return mechanics;
     }
 
-    public List getVehicles() {
+    public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    public List getSpareParts() {
+    public List<SparePart> getSpareParts() {
         return spareParts;
     }
 }

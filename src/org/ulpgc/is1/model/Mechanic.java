@@ -1,15 +1,37 @@
 package org.ulpgc.is1.model;
+import java.util.*;
 
 public class Mechanic {
     public String name;
     public String surname;
-    public Repair repair;
+    public List<Repair> repairs;
 
-    //TODO Relation between Mechanic and Repair
 
-    public Mechanic(String name, String surname, Repair repair) {
+    public Mechanic(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.repair = repair;
+        this.repairs = new ArrayList<>();
+    }
+
+    public List<Repair> getRepairs() {
+        return repairs;
+    }
+
+    public void addRepair(Repair repair) {
+        repairs.add(repair);
+        repair.getMechanics().add(this);
+    }
+
+    public void removeMechanic(Repair repair) {
+        repairs.remove(repair);
+        repair.getMechanics().remove(this);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 }

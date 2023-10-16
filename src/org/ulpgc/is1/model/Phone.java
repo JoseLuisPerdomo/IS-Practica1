@@ -11,12 +11,7 @@ public class Phone {
     }
 
     public boolean isValid() {
-        if (number != ""){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return !number.isEmpty();
     }
 
     public String getNumber() {

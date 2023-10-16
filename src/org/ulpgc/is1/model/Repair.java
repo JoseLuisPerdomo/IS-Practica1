@@ -1,7 +1,5 @@
 package org.ulpgc.is1.model;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Date;
+import java.util.*;
 
 //TODO Creation of newPayment
 
@@ -12,6 +10,7 @@ public class Repair {
     public String description;
     public int effort;
     public Vehicle vehicle;
+    public List <Mechanic> mechanics;
     public Set<BreakdownTypes> breakdownTypes;;
 
     public Repair(Date date, String description, int effort, Vehicle vehicle, BreakdownTypes breakdownTypes) {
@@ -20,6 +19,7 @@ public class Repair {
         this.description = description;
         this.effort = effort;
         this.vehicle = vehicle;
+        this.mechanics = new ArrayList<Mechanic>();
         this.breakdownTypes = new HashSet<>();
     }
 
@@ -29,6 +29,20 @@ public class Repair {
 
     public void addBreakType(BreakdownTypes breakType) {
         breakdownTypes.add(breakType);
+    }
+
+    public void addMechanic(Mechanic mechanic) {
+        mechanics.add(mechanic);
+        mechanic.getRepairs().add(this);
+    }
+
+    public void removeMechanic(Mechanic mechanic) {
+        mechanics.remove(mechanic);
+        mechanic.getRepairs().remove(this);
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
     }
 
     public Set<BreakdownTypes> getBreakTypes() {
