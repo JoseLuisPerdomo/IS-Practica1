@@ -15,6 +15,15 @@ public class Main {
 
     }
     public static void main(String[] args) {
+        Plate matric1 = new Plate("4513HGF");
+        Plate matric2 = new Plate("342puta");
+        System.out.println(matric1.isValid());
+        System.out.println(matric2.isValid());
 
+        Phone num1 = new Phone("679500707");
+        Phone num2 = new Phone("9898989899");
+
+        System.out.println(num1.isValid());
+        System.out.println(num2.isValid());
     }
 }

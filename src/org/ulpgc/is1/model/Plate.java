@@ -6,14 +6,9 @@ public class Plate {
     public Plate(String number) {
         this.number = number;
     }
-//TODO Improve method isValid.
+
         public boolean isValid() {
-            if (number != ""){
-                return true;
-            }
-            else {
-                return false;
-            }
+            return number.toUpperCase().matches("^[0-9]{4}[A-Z]{3}$");
         }
 
     public String getNumber() {
