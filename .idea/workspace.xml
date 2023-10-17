@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1444c75-59de-4d80-8dfb-52a63858f3ea" name="Changes" comment="AlmostAllMethodsAndRelationsDone">
+    <list default="true" id="c1444c75-59de-4d80-8dfb-52a63858f3ea" name="Changes" comment="ImprovesInSomeMethods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Mechanic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Mechanic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Repair.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/SparePart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/SparePart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +86,8 @@
       <updated>1697392004812</updated>
       <workItem from="1697392006616" duration="5681000" />
       <workItem from="1697451673118" duration="8169000" />
+      <workItem from="1697460589173" duration="852000" />
+      <workItem from="1697468164264" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="CreationOfSomeClasses">
       <option name="closed" value="true" />
@@ -108,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697397659737</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ImprovesInSomeMethods">
+      <option name="closed" value="true" />
+      <created>1697460940597</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697460940597</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +133,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="CreationOfSomeClasses" />
     <MESSAGE value="AlmostAllMethodsAndRelationsDone" />
-    <option name="LAST_COMMIT_MESSAGE" value="AlmostAllMethodsAndRelationsDone" />
+    <MESSAGE value="ImprovesInSomeMethods" />
+    <option name="LAST_COMMIT_MESSAGE" value="ImprovesInSomeMethods" />
   </component>
 </project>
