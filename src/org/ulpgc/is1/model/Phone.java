@@ -7,10 +7,9 @@ public class Phone {
     public Phone(String number) {
         if (isValid(number)){
             this.number = number;
-            System.out.println("Phone number saved correctly.");
         } else{
             this.number = "XXXX";
-            System.out.println("Invalid phone number.");
+            System.out.println("Invalid phone number. Saved as \"XXXX\"");
         }
     }
 
@@ -26,7 +25,7 @@ public class Phone {
 
     //Methods
     public boolean isValid(String number) {
-        return number.toUpperCase().matches("^[0-9]{9}$");
+        return number.toUpperCase().matches("\\d{3} \\d{2} \\d{2} \\d{2}");
     }
 
 }

@@ -7,7 +7,6 @@ public class Plate {
     public Plate(String number) {
         if (isValid(number)){
             this.number = number;
-            System.out.println("Plate number saved correctly.");
         }else {
             System.out.println("Invalid plate number.");
         }
