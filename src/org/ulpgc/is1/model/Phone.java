@@ -3,10 +3,15 @@ package org.ulpgc.is1.model;
 public class Phone {
 
     //Constructor
-    //TODO make it primitive
     private String number;
     public Phone(String number) {
-        this.number = number;
+        if (isValid(number)){
+            this.number = number;
+            System.out.println("Phone number saved correctly.");
+        } else{
+            this.number = "XXXX";
+            System.out.println("Invalid phone number.");
+        }
     }
 
 
@@ -20,8 +25,7 @@ public class Phone {
 
 
     //Methods
-    //TODO implement in constructor
-    public boolean isValid() {
+    public boolean isValid(String number) {
         return number.toUpperCase().matches("^[0-9]{9}$");
     }
 

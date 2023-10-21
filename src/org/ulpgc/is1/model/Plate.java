@@ -5,7 +5,12 @@ public class Plate {
     //Constructor
     private String number;
     public Plate(String number) {
-        this.number = number;
+        if (isValid(number)){
+            this.number = number;
+            System.out.println("Plate number saved correctly.");
+        }else {
+            System.out.println("Invalid plate number.");
+        }
     }
 
 
@@ -19,8 +24,7 @@ public class Plate {
 
 
     //Methods
-    //TODO implement in constructor
-    public boolean isValid() {
+    public boolean isValid(String number) {
             return number.toUpperCase().matches("^[0-9]{4}[A-Z]{3}$");
     }
 

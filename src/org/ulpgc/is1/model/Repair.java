@@ -1,11 +1,11 @@
 package org.ulpgc.is1.model;
 import java.util.*;
 
-//TODO Creation of newPayment
 
 public class Repair {
 
     //Constructor
+    //TODO create a payment that accepts null and payment
     private static int NEXT_ID = 0;
     private final int id;
     private Date date;
@@ -13,8 +13,10 @@ public class Repair {
     private int effort;
     private Vehicle vehicle;
     private List <Mechanic> mechanics;
-    private Set<BreakdownTypes> breakdownTypes;;
-    public Repair(Date date, String description, int effort, Vehicle vehicle, BreakdownTypes breakdownTypes) {
+    private Set<BreakdownTypes> breakdownTypes;
+    private List <SparePart> spareParts;
+    private Payment payment;
+    public Repair(Date date, String description, int effort, Vehicle vehicle, BreakdownTypes breakdownTypes, SparePart spareParts, Payment payment) {
         this.id = NEXT_ID++;
         this.date = date;
         this.description = description;
@@ -22,6 +24,8 @@ public class Repair {
         this.vehicle = vehicle;
         this.mechanics = new ArrayList<Mechanic>();
         this.breakdownTypes = new HashSet<>();
+        this.spareParts = (List<SparePart>) spareParts;
+        this.payment = payment;
     }
 
 
@@ -65,10 +69,22 @@ public class Repair {
     public void setBreakdownTypes(Set<BreakdownTypes> breakdownTypes) {
         this.breakdownTypes = breakdownTypes;
     }
+    public List<SparePart> getSpareParts() {
+        return spareParts;
+    }
+    public void setSpareParts(List<SparePart> spareParts) {
+        this.spareParts = spareParts;
+    }
+    public Payment getPayment() {
+        return payment;
+    }
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
 
 
     //Methods
-    //Todo price method
+    //TODO price method
     public void addBreakType(BreakdownTypes breakType) {
         breakdownTypes.add(breakType);
     }

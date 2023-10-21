@@ -16,7 +16,6 @@ public class RepairManager {
 
 
     //Getters & Setters
-    //TODO Methods Repair and getMechanic/Vehicle
     public List<Mechanic> getMechanics() {
         return mechanics;
     }
@@ -43,6 +42,15 @@ public class RepairManager {
     }
     public void addVehicle(Vehicle newVehicle){
         vehicles.add(newVehicle);
+    }
+    public Mechanic getMechanic(int index){
+        return getMechanics().get(index);
+    }
+    public Vehicle getVehicle(int index){
+        return getVehicles().get(index);
+    }
+    public Repair repair(int mechanicIndex, int repairIndex){
+        return getMechanic(mechanicIndex).getRepairs().get(repairIndex);
     }
 
 }

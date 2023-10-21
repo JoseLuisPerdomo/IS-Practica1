@@ -5,7 +5,6 @@ import java.util.List;
 public class SparePart {
 
     //Constructor
-    //TODO Make the relation between SpareParts and Repair
     private String name;
     private int price;
     private List<Repair> repairs;
