@@ -12,8 +12,8 @@ public class Main {
         Vehicle vehiculo2 = new Vehicle("Mercedes", "Benz", new Plate("3412TDF"), new Costumer("Makeko", new Phone("131 13 13 13")));
         SparePart pieza1 = new SparePart("Tubo de escape", 32);
         SparePart pieza2 = new SparePart("Capó", 45);
-
     }
+
     public static void main(String[] args) {
         Plate matric1 = new Plate("4513HGF");
         Plate matric2 = new Plate("342puta");

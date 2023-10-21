@@ -1,0 +1,7 @@
+Miembros:
+    - Jose Luis Perdomo
+    - Pablo Traverso
+    - Kaarlo Caballero
+
+Git repository:
+https://github.com/JoseLuisPerdomo/ISPrcatica1.git
