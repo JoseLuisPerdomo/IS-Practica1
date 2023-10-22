@@ -13,16 +13,19 @@ public class Repair {
     private Vehicle vehicle;
     private List <Mechanic> mechanics;
     private BreakdownTypes breakdownType;
-    private List <SparePart> spareParts;
-    public Repair(Date date, String description, int effort, Vehicle vehicle, List<Mechanic> mechanic, BreakdownTypes breakdownType, List<SparePart> spareParts) {
+    private List <Item> items;
+    private Payment payment;
+
+    private int controlPayments = 0;
+    public Repair(Date date, String description, int effort, Vehicle vehicle, BreakdownTypes breakdownType) {
         this.id = NEXT_ID++;
         this.date = date;
         this.description = description;
         this.effort = effort;
         this.vehicle = vehicle;
-        this.mechanics = mechanic;
+        this.mechanics = new ArrayList<>();
         this.breakdownType = breakdownType;
-        this.spareParts = spareParts;
+        this.items = new ArrayList<>();
     }
 
 
@@ -66,26 +69,51 @@ public class Repair {
     public void setBreakdownTypes(BreakdownTypes breakdownTypes) {
         this.breakdownType = breakdownTypes;
     }
-    public List<SparePart> getSpareParts() {
-        return spareParts;
+    public List<Item> getItems() {
+        return items;
     }
-    public void setSpareParts(List<SparePart> spareParts) {
-        this.spareParts = spareParts;
+    public int getPrice(){
+        if (controlPayments == 1){
+            return payment.getAmount();
+        }
+        else {
+            return 0;
+        }
     }
 
 
     //Methods
     public void addMechanic(Mechanic mechanic) {
-        mechanics.add(mechanic);
-        mechanic.getRepairs().add(this);
+        if (mechanics.contains(mechanic)) {
+            mechanics.add(mechanic);
+            mechanic.getRepairs().add(this);
+        }
     }
     public void removeMechanic(Mechanic mechanic) {
         mechanics.remove(mechanic);
         mechanic.getRepairs().remove(this);
     }
-    public String price(int amount, Date date){
-        Payment payment =  new Payment(amount, date);
-        return payment.toString();
+
+    public void addItem(Item item){
+        if (!items.contains(item)) {
+            items.add(item);
+            item.getRepair().add(this);
+        }
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+        item.getRepair().remove(this);
+    }
+    public boolean price(){ //Devuelve true si el precio se crea correctamente
+        if (controlPayments == 0){
+            this.payment =  new Payment(effort + items.stream().map(item -> item.getSparePart().getPrice() * item.getQuantity()).reduce(0, Integer::sum), date);
+            controlPayments++;
+            return true;
+        } else {
+            System.out.println("Repair has already a payment.");
+            return false;
+        }
     }
 
 }

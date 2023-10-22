@@ -1,15 +1,14 @@
 package org.ulpgc.is1.model;
+import java.util.List;
 
 public class Item {
 
 	//Constructor
 	private int quantity;
 	private SparePart sparePart;
-	private Repair repair;
-	public Item(int quantity, SparePart sparePart, Repair repair){
+	public Item(int quantity, SparePart sparePart){
 		this.quantity = quantity;
 		this.sparePart = sparePart;
-		this.repair = repair;
 	}
 
 
@@ -26,10 +25,7 @@ public class Item {
 	public void setSparePart(SparePart sparePart) {
 		this.sparePart = sparePart;
 	}
-	public Repair getRepair() {
-		return repair;
-	}
-	public void setRepair(Repair repair) {
-		this.repair = repair;
+	public List<Repair> getRepair() {
+		return sparePart.getRepairs();
 	}
 }

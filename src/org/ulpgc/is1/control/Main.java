@@ -1,7 +1,6 @@
 package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,13 +15,11 @@ public class Main {
     public static SparePart pieza1;
     public static SparePart pieza2;
     public static RepairManager repairManager = new RepairManager();
-    public static List <Mechanic> mechanics = new ArrayList<>();
-    public static List <SparePart> spareParts = new ArrayList<>();
     public static Repair repair;
 
 
     public static void main(String[] args) {
-        init(repairManager);
+        init();
         printMechanic1();
         printVehicle2();
         createRepairObject();
@@ -33,12 +30,12 @@ public class Main {
     }
 
     //Methods
-    public static void init(RepairManager repairManager){
+    public static void init(){
         mecanico1 = new Mechanic("Pedro", "Quevedo");
         mecanico2 = new Mechanic("José", "Perdomo");
         vehiculo1 = new Vehicle("Ford", "Fiesta",
                 new Plate("4517HGK"),
-                new Costumer("Antonio el mamao",
+                new Costumer("Antonio",
                         new Phone("696 69 69 69")));
         vehiculo2 = new Vehicle("Mercedes", "Benz",
                 new Plate("3412TDF"),
@@ -70,31 +67,34 @@ public class Main {
     }
     public static void createRepairObject (){
         try {
-            Date fecha = new Date();
-            mechanics.add(mecanico1);
-            spareParts.add(pieza1);
-            spareParts.add(pieza2);
+            Date date = new Date();
+            repairManager.addMechanic(mecanico1);
+
 
             repair = new Repair(
-                    fecha,
+                    date,
                     "Cambio de capó y tubo de escape",
                     20,
                     vehiculo2,
-					mechanics,
-                    BreakdownTypes.MECHANICAL,
-                    spareParts);
+                    BreakdownTypes.MECHANICAL);
+            repair.addItem(new Item(1, pieza1));
+            repair.addItem(new Item(2, pieza2));
         } catch (Exception e){System.out.println("Error: " + e);}
     }
-    public static void formalizePayment (){
-        System.out.println("\nPayment formalized correctly: "+repair.price(350, repair.getDate()));
+    public static void formalizePayment () {
+        if (repair.price()) {
+            System.out.printf("\nPayment formalized correctly: %d", repair.getPrice());
+        }
+        else {
+            System.out.println("\nPayment not formalized");
+        }
     }
     public static void deleteVehicle(){
         try{
-            vehiculo1 = null;
-			Vehicle.count -= 1;
-            System.out.println("\nVehiculo1 sucessfully deleted.");
+            repairManager.removeVehicle(vehiculo1);
+            System.out.println("\nVehicle1 sucessfully deleted.");
         } catch (Exception e){
-            System.out.println("\nFailure during deletion of vehiculo1.");
+            System.out.println("\nFailure during deletion of vehicle.");
         }
     }
     public static void vehicleAmount(){
@@ -102,14 +102,14 @@ public class Main {
     }
     public static void repairInfo(){
         System.out.printf("""
-                    \nObject created sucessfully:
-                        - Fecha: %s
-                        - Descripción: %s
-                        - vehiculo: %s
-                        - Mechanico: %s
-                        - Fallo: %s
-                        - Piezas: %s
+                    \nRepair Data:
+                        - Date: %s
+                        - Description: %s
+                        - Vehicle: %s
+                        - Mechanic: %s
+                        - Fail: %s
+                        - Items: %s
                     """, repair.getDate(), repair.getDescription(), repair.getVehicle().toString(),
-                repair.getMechanics().toString(), repair.getBreakdownType(), repair.getSpareParts());
+                repair.getMechanics().toString(), repair.getBreakdownType(), repair.getItems());
     }
 }

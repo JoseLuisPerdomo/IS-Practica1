@@ -37,8 +37,10 @@ public class Mechanic {
 
     // Methods
     public void addRepair(Repair repair) {
-        repairs.add(repair);
-        repair.getMechanics().add(this);
+        if (repairs.contains(repair)) {
+            repairs.add(repair);
+            repair.getMechanics().add(this);
+        }
     }
     public void removeMechanic(Repair repair) {
         repairs.remove(repair);

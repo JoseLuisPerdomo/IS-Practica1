@@ -36,8 +36,5 @@ public class SparePart {
     public List<Repair> getRepairs() {
         return repairs;
     }
-    public void setRepairs(List<Repair> repairs) {
-        this.repairs = repairs;
-    }
 
 }

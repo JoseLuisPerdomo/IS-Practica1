@@ -7,11 +7,11 @@ public class RepairManager {
     //Constructor
     private List<Mechanic> mechanics;
     private List<Vehicle> vehicles;
-    private List<SparePart> spareParts;
+    private List<Item> items;
     public RepairManager() {
         this.mechanics = new ArrayList<>();
         this.vehicles = new ArrayList<>();
-        this.spareParts = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
 
@@ -28,20 +28,24 @@ public class RepairManager {
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
-    public List<SparePart> getSpareParts() {
-        return spareParts;
-    }
-    public void setSpareParts(List<SparePart> spareParts) {
-        this.spareParts = spareParts;
+    public List<Item> getItems() {
+        return items;
     }
 
 
     //Methods
-    public void addMechanic(Mechanic newMechanic){
-        mechanics.add(newMechanic);
+    public void addMechanic(Mechanic newMechanic) {
+        if (!mechanics.contains(newMechanic)){
+            mechanics.add(newMechanic);
+        }
     }
     public void addVehicle(Vehicle newVehicle){
         vehicles.add(newVehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle){
+        vehicles.remove(vehicle);
+        Vehicle.count -= 1;
     }
     public Mechanic getMechanic(int index){
         return getMechanics().get(index);
