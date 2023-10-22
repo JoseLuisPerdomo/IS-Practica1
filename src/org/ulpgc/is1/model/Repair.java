@@ -13,17 +13,17 @@ public class Repair {
     private int effort;
     private Vehicle vehicle;
     private List <Mechanic> mechanics;
-    private Set<BreakdownTypes> breakdownTypes;
+    private BreakdownTypes breakdownType;
     private List <SparePart> spareParts;
-    public Repair(Date date, String description, int effort, Vehicle vehicle, Mechanic mecanico1, BreakdownTypes breakdownTypes, SparePart spareParts) {
+    public Repair(Date date, String description, int effort, Vehicle vehicle, List<Mechanic> mechanic, BreakdownTypes breakdownType, List<SparePart> spareParts) {
         this.id = NEXT_ID++;
         this.date = date;
         this.description = description;
         this.effort = effort;
         this.vehicle = vehicle;
-        this.mechanics = (List<Mechanic>) mechanics;
-        this.breakdownTypes = new HashSet<>();
-        this.spareParts = (List<SparePart>) spareParts;
+        this.mechanics = mechanic;
+        this.breakdownType = breakdownType;
+        this.spareParts = spareParts;
     }
 
 
@@ -61,11 +61,11 @@ public class Repair {
     public void setMechanics(List<Mechanic> mechanics) {
         this.mechanics = mechanics;
     }
-    public Set<BreakdownTypes> getBreakdownTypes() {
-        return breakdownTypes;
+    public BreakdownTypes getBreakdownType() {
+        return breakdownType;
     }
-    public void setBreakdownTypes(Set<BreakdownTypes> breakdownTypes) {
-        this.breakdownTypes = breakdownTypes;
+    public void setBreakdownTypes(BreakdownTypes breakdownTypes) {
+        this.breakdownType = breakdownType;
     }
     public List<SparePart> getSpareParts() {
         return spareParts;
@@ -76,9 +76,6 @@ public class Repair {
 
 
     //Methods
-    public void addBreakType(BreakdownTypes breakType) {
-        breakdownTypes.add(breakType);
-    }
     public void addMechanic(Mechanic mechanic) {
         mechanics.add(mechanic);
         mechanic.getRepairs().add(this);

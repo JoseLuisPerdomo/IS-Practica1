@@ -2,6 +2,7 @@ package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.*;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,8 +10,6 @@ import java.util.List;
 public class Main {
 
     /*TODO
-        + Solve problem with date format in repair class
-        - Registrar una reparación que realiza el primer mecánico sobre el segundo vehículo. En esta reparación se han modificado dos piezas del vehículo, con el tipo de reparación “Mechanical”.
         - Formalizar el pago de la reparación anterior.
         - Borrar el primer vehículo.
         - Imprimir por pantalla el número de vehículos del taller.
@@ -25,6 +24,8 @@ public class Main {
     public static SparePart pieza1;
     public static SparePart pieza2;
     public static RepairManager repairManager = new RepairManager();
+    public static List <Mechanic> mechanics = new ArrayList<>();
+    public static List <SparePart> spareParts = new ArrayList<>();
 
 
     public static void main(String[] args) throws ParseException {
@@ -74,27 +75,37 @@ public class Main {
                 vehiculo2.getMake(), vehiculo2.getModel(), vehiculo2.getPlate().getNumber(),
                 vehiculo2.getOwner().getName());
     }
-
     public static void createRepairObject (){
         try {
             Date fecha = new Date();
-            Mechanic mecanico = (Mechanic) List.of(mecanico1);
-            SparePart repuesto = (SparePart) List.of(pieza1, pieza2);
+            mechanics.add(mecanico1);
+            spareParts.add(pieza1);
+            spareParts.add(pieza2);
 
             Repair repair = new Repair(
                     fecha,
                     "Cambio de capó y tubo de escape",
                     20,
                     vehiculo2,
-                    mecanico,
+					mechanics,
                     BreakdownTypes.MECHANICAL,
-                    repuesto);
-            System.out.println(repair);
+                    spareParts);
+            System.out.printf("""
+                    \nObject created sucessfully:
+                        - Fecha: %s
+                        - Descripción: %s
+                        - vehiculo: %s
+                        - Mechanico: %s
+                        - Fallo: %s
+                        - Piezas: %s
+                    """, repair.getDate(), repair.getDescription(), repair.getVehicle().toString(),
+                    repair.getMechanics(), repair.getBreakdownType(), repair.getSpareParts());
         } catch (Exception e){System.out.println("Error: " + e);}
     }
 
     public static void formalizePayment (){
         //print payment object
+
     }
 
     public static void deleteVehicle(){

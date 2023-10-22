@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1444c75-59de-4d80-8dfb-52a63858f3ea" name="Changes" comment="Creation of init and print of mechanic and vehicle">
+    <list default="true" id="c1444c75-59de-4d80-8dfb-52a63858f3ea" name="Changes" comment="Creation of methods in main class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/control/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Repair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/ulpgc/is1/model/Repair.java" afterDir="false" />
@@ -150,7 +150,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697905942978</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Creation of methods in main class">
+      <option name="closed" value="true" />
+      <created>1697979981068</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697979981068</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Creation of methods in main class">
+      <option name="closed" value="true" />
+      <created>1697980062946</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697980062946</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,6 +191,7 @@
     <MESSAGE value="all attributes private and organized" />
     <MESSAGE value="all methods for RepairManager done" />
     <MESSAGE value="Creation of init and print of mechanic and vehicle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creation of init and print of mechanic and vehicle" />
+    <MESSAGE value="Creation of methods in main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of methods in main class" />
   </component>
 </project>
