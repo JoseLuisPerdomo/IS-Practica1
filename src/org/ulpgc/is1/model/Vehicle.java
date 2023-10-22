@@ -7,11 +7,13 @@ public class Vehicle {
     private String model;
     private Plate plate;
     private Costumer owner;
+    public static int count=0;
     public Vehicle (String make, String model, Plate plate, Costumer owner){
         this.make = make;
         this.model = model;
         this.plate = plate;
         this.owner = owner;
+        count+=1;
     }
 
 

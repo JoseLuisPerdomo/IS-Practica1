@@ -1,6 +1,5 @@
 package org.ulpgc.is1.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Payment {
@@ -8,9 +7,9 @@ public class Payment {
     //Constructor
     private Date date;
     private int amount;
-    public Payment(int amount, SimpleDateFormat date){
+    public Payment(int amount, Date date){
         this.amount = amount;
-        this.date = date.get2DigitYearStart();
+        this.date = date;
     }
 
 

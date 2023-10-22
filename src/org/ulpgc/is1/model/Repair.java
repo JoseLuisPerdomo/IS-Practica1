@@ -1,5 +1,4 @@
 package org.ulpgc.is1.model;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -65,7 +64,7 @@ public class Repair {
         return breakdownType;
     }
     public void setBreakdownTypes(BreakdownTypes breakdownTypes) {
-        this.breakdownType = breakdownType;
+        this.breakdownType = breakdownTypes;
     }
     public List<SparePart> getSpareParts() {
         return spareParts;
@@ -84,8 +83,8 @@ public class Repair {
         mechanics.remove(mechanic);
         mechanic.getRepairs().remove(this);
     }
-    public String price(int amount, String date /*Format: yyyy-MM-dd*/){
-        Payment payment =  new Payment(amount, new SimpleDateFormat(date));
+    public String price(int amount, Date date){
+        Payment payment =  new Payment(amount, date);
         return payment.toString();
     }
 

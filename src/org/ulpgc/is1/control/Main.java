@@ -1,20 +1,12 @@
 package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.*;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 public class Main {
-
-    /*TODO
-        - Formalizar el pago de la reparación anterior.
-        - Borrar el primer vehículo.
-        - Imprimir por pantalla el número de vehículos del taller.
-        - Imprimir por pantalla toda la información de la reparación: datos generales, piezas sustituidas y el pago.
-    * */
 
     //Global variables
     public static Mechanic mecanico1;
@@ -26,9 +18,10 @@ public class Main {
     public static RepairManager repairManager = new RepairManager();
     public static List <Mechanic> mechanics = new ArrayList<>();
     public static List <SparePart> spareParts = new ArrayList<>();
+    public static Repair repair;
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         init(repairManager);
         printMechanic1();
         printVehicle2();
@@ -82,7 +75,7 @@ public class Main {
             spareParts.add(pieza1);
             spareParts.add(pieza2);
 
-            Repair repair = new Repair(
+            repair = new Repair(
                     fecha,
                     "Cambio de capó y tubo de escape",
                     20,
@@ -90,7 +83,25 @@ public class Main {
 					mechanics,
                     BreakdownTypes.MECHANICAL,
                     spareParts);
-            System.out.printf("""
+        } catch (Exception e){System.out.println("Error: " + e);}
+    }
+    public static void formalizePayment (){
+        System.out.println("\nPayment formalized correctly: "+repair.price(350, repair.getDate()));
+    }
+    public static void deleteVehicle(){
+        try{
+            vehiculo1 = null;
+			Vehicle.count -= 1;
+            System.out.println("\nVehiculo1 sucessfully deleted.");
+        } catch (Exception e){
+            System.out.println("\nFailure during deletion of vehiculo1.");
+        }
+    }
+    public static void vehicleAmount(){
+        System.out.println("\nNumber of vehicles: "+ Vehicle.count);
+    }
+    public static void repairInfo(){
+        System.out.printf("""
                     \nObject created sucessfully:
                         - Fecha: %s
                         - Descripción: %s
@@ -99,24 +110,6 @@ public class Main {
                         - Fallo: %s
                         - Piezas: %s
                     """, repair.getDate(), repair.getDescription(), repair.getVehicle().toString(),
-                    repair.getMechanics(), repair.getBreakdownType(), repair.getSpareParts());
-        } catch (Exception e){System.out.println("Error: " + e);}
-    }
-
-    public static void formalizePayment (){
-        //print payment object
-
-    }
-
-    public static void deleteVehicle(){
-        //Print object deletion
-    }
-
-    public static void vehicleAmount(){
-        //Print vehicle amount
-    }
-
-    public static void repairInfo(){
-        //repair
+                repair.getMechanics(), repair.getBreakdownType(), repair.getSpareParts());
     }
 }
