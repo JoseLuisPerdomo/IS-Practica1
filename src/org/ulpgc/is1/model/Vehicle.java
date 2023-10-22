@@ -16,6 +16,11 @@ public class Vehicle {
         count+=1;
     }
 
+    @Override
+    public String toString(){
+        return make + " " + model;
+    }
+
 
     //Getters & Setters
     public String getMake() {

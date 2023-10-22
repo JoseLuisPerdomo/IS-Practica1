@@ -12,7 +12,6 @@ public class Payment {
         this.date = date;
     }
 
-
     //Getters & Setters
     public Date getDate() {
         return date;

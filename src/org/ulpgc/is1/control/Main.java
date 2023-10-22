@@ -110,6 +110,6 @@ public class Main {
                         - Fallo: %s
                         - Piezas: %s
                     """, repair.getDate(), repair.getDescription(), repair.getVehicle().toString(),
-                repair.getMechanics(), repair.getBreakdownType(), repair.getSpareParts());
+                repair.getMechanics().toString(), repair.getBreakdownType(), repair.getSpareParts());
     }
 }

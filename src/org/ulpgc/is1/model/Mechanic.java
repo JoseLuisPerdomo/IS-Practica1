@@ -45,4 +45,9 @@ public class Mechanic {
         repair.getMechanics().remove(this);
     }
 
+    @Override
+    public String toString() {
+        return name + " " + surname;
+    }
+
 }

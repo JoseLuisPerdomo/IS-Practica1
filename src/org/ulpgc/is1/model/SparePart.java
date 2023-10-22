@@ -14,6 +14,11 @@ public class SparePart {
         this.repairs = new ArrayList<>();
     }
 
+    @Override
+    public String toString(){
+        return name;
+    }
+
 
     //Getters & Setters
     public String getName() {
