@@ -8,20 +8,20 @@ public class Repair {
     //Constructor
     private static int NEXT_ID = 0;
     private final int id;
-    private SimpleDateFormat date;
+    private Date date;
     private String description;
     private int effort;
     private Vehicle vehicle;
     private List <Mechanic> mechanics;
     private Set<BreakdownTypes> breakdownTypes;
     private List <SparePart> spareParts;
-    public Repair(SimpleDateFormat date, String description, int effort, Vehicle vehicle, BreakdownTypes breakdownTypes, SparePart spareParts) {
+    public Repair(Date date, String description, int effort, Vehicle vehicle, Mechanic mecanico1, BreakdownTypes breakdownTypes, SparePart spareParts) {
         this.id = NEXT_ID++;
         this.date = date;
         this.description = description;
         this.effort = effort;
         this.vehicle = vehicle;
-        this.mechanics = new ArrayList<Mechanic>();
+        this.mechanics = (List<Mechanic>) mechanics;
         this.breakdownTypes = new HashSet<>();
         this.spareParts = (List<SparePart>) spareParts;
     }
@@ -31,10 +31,10 @@ public class Repair {
     public int getId() {
         return id;
     }
-    public SimpleDateFormat getDate() {
+    public Date getDate() {
         return date;
     }
-    public void setDate(SimpleDateFormat date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     public String getDescription() {
